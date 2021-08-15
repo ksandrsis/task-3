@@ -1,6 +1,6 @@
 # I'm sorry, but it seemed to me that this file already has enough information about how to run the project, so I don't see the point in writing a new file instead of this file
 
-Please use yarn instead of npn here
+Please use yarn instead of npm here
 
 ### `yarn format` to format your code
 ### `yarn lint` to lint your code
