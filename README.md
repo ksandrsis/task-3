@@ -1,10 +1,12 @@
+# I'm sorry, but it seemed to me that this file already has enough information about how to run the project, so I don't see the point in writing a new file instead of this file
+
+### `yarn format` to format your code
+### `yarn lint` to lint your code
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 and you can use 2 additional scripts
-
-### `yarn format` to format you code
-### `yarn lint` to lint you code
 
 ## Available Scripts
 
