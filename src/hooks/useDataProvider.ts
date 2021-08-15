@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import parse from "../utils";
 import {
   IDataContext,
@@ -15,6 +15,38 @@ const useDataProvider = (): IDataContext => {
   const [offices, setOffices] = useState<Office[]>([]);
   const [publishers, setPublishers] = useState<Publisher[] | undefined>(
     undefined
+  );
+
+  const updateUsers = useCallback(
+    (mode: "edit" | "delete" | "new", user: User): void | null => {
+      if (data) {
+        const { users: oldUsers } = data;
+        switch (mode) {
+          case "delete": {
+            return setData({
+              ...data,
+              users: oldUsers.filter(({ id }) => id !== user.id),
+            });
+          }
+          case "edit": {
+            return setData({
+              ...data,
+              users: oldUsers.map((old) => (old.id !== user.id ? old : user)),
+            });
+          }
+          case "new": {
+            return setData({
+              ...data,
+              users: [...oldUsers, user],
+            });
+          }
+          default: {
+            return null;
+          }
+        }
+      }
+    },
+    [data, setData]
   );
 
   useEffect(() => {
@@ -39,7 +71,7 @@ const useDataProvider = (): IDataContext => {
             users: initialUsers,
             offices: initialOffices,
             publishers: initialPublishers,
-          });
+          } as IDataContext);
         });
       } catch (e) {
         console.error(e);
@@ -51,6 +83,7 @@ const useDataProvider = (): IDataContext => {
     users,
     offices,
     publishers,
+    updateUsers,
   };
 };
 

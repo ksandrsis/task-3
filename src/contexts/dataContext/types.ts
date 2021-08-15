@@ -2,6 +2,7 @@ export interface IDataContext {
   users: User[];
   publishers?: Publisher[];
   offices: Office[];
+  updateUsers: (mode: "edit" | "delete" | "new", user: User) => void | null;
 }
 
 export interface User {
