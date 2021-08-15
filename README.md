@@ -1,6 +1,10 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+and you can yse 2 additional scripts
+
+### `yarn format` to format you code
+### `yarn lint` to lint you code
 
 ## Available Scripts
 
